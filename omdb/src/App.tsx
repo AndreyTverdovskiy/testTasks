@@ -24,6 +24,7 @@ function App() {
     const [currentPage, setCurrentPage] = useState(1)
 
     const [showPag, setShowPag] = useState(false)
+    const [showRes, setShowRes] = useState(false)
 
     const searchFilm = async () => {
         try {
@@ -33,6 +34,7 @@ function App() {
                 setSearchResult(Search)
                 setTotalResults(totalResults)
                 setShowPag(true)
+                setShowRes(true)
                 setError('')
             } else {
                 setError(Error)
@@ -41,7 +43,7 @@ function App() {
             console.log(e)
         }
     }
-    const debouncedSearchTerm = useDebounce(searchName, 500);
+    const debouncedSearchTerm = useDebounce(searchName, 300);
 
     useEffect(() => {
         searchFilm();
@@ -62,36 +64,26 @@ function App() {
             </div>
         )
     })
-
-    if (error === 'Movie not found!') {
-        return (
-            <div className={s.App}>
-                <Header searchName={searchName}
-                        setSearchName={setSearchName}
-                />
-                <>
-                    {error}
-                </>
-            </div>
-        )
-    } else {
-        return (
-            <div className={s.App}>
-                <Header searchName={searchName}
-                        setSearchName={setSearchName}
-                />
-                <div className={s.films}>
-                    <span>You search for: {searchName}, {totalResults} results found</span>
-                    {listFilms}
+    return (
+        <div className={s.App}>
+            <Header searchName={searchName}
+                    setSearchName={setSearchName}
+            />
+            {error === 'Movie not found!'
+                ? error
+                : <div>
+                    {showRes && <span>You search for: {searchName}, {totalResults} results found</span>}
+                    <div className={s.films}>
+                        {listFilms}
+                    </div>
+                    {showPag && <Paginator totalResults={+totalResults}
+                                           currentPage={currentPage}
+                                           onChangedPage={changePage}
+                    />}
                 </div>
-                {showPag && <Paginator totalResults={+totalResults}
-                                       currentPage={currentPage}
-                                       onChangedPage={changePage}
-                />}
-
-            </div>
-        );
-    }
+            }
+        </div>
+    );
 }
 
 export default App;
