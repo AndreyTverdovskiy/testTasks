@@ -22,6 +22,8 @@ function App() {
     const [totalResults, setTotalResults] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
 
+    const [showPag, setShowPag] = useState(false)
+
     const searchFilm = async () => {
         try {
             const {data} = await API.searchFilmsByTitle(searchName, currentPage);
@@ -29,6 +31,7 @@ function App() {
             if (Response === 'True') {
                 setSearchResult(Search)
                 setTotalResults(totalResults)
+                setShowPag(true)
                 setError('')
             } else {
                 setError(Error)
@@ -58,22 +61,7 @@ function App() {
         )
     })
 
-    if (error !== 'Movie not found!') {
-        return (
-            <div className={s.App}>
-                <Header searchName={searchName}
-                        setSearchName={setSearchName}
-                />
-                <div className={s.films}>
-                    <span>You search for: {searchName}, {totalResults} results found</span>
-                    {listFilms}
-                </div>
-                <Paginator totalResults={+totalResults}
-                           onChangedPage={changePage}
-                />
-            </div>
-        );
-    } else {
+    if (error === 'Movie not found!') {
         return (
             <div className={s.App}>
                 <Header searchName={searchName}
@@ -84,6 +72,23 @@ function App() {
                 </>
             </div>
         )
+    } else {
+        return (
+            <div className={s.App}>
+                <Header searchName={searchName}
+                        setSearchName={setSearchName}
+                />
+                <div className={s.films}>
+                    <span>You search for: {searchName}, {totalResults} results found</span>
+                    {listFilms}
+                </div>
+                {showPag && <Paginator totalResults={+totalResults}
+                                       currentPage={currentPage}
+                                       onChangedPage={changePage}
+                />}
+
+            </div>
+        );
     }
 }
 

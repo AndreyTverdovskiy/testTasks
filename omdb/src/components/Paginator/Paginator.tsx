@@ -7,10 +7,11 @@ import arrowRight from '../../images/arrowRight.svg';
 
 export type PaginatorTypeProps = {
     totalResults: number
+    currentPage:number
     onChangedPage: (currentPage: number) => void
 }
 
-export const Paginator: React.FC<PaginatorTypeProps> = ({totalResults, onChangedPage}) => {
+export const Paginator: React.FC<PaginatorTypeProps> = ({totalResults, onChangedPage, currentPage}) => {
     let portionSize = 10;
     let pagesCounts = Math.ceil(totalResults / portionSize);
     let pages = [];
@@ -62,7 +63,7 @@ export const Paginator: React.FC<PaginatorTypeProps> = ({totalResults, onChanged
                     return (
                         <div
                             key={p}
-                            className={'currentPage === p ? styles.currentPage : styles.page'}
+                            className={currentPage === p ? s.currentPage : s.page}
                             onClick={() => {
                                 onChangedPage(p)
                             }}

@@ -23,23 +23,23 @@
     user-select: none;
   }
 
-  //.currentPage {
-  //  display: flex;
-  //  justify-content: center;
-  //  align-items: center;
-  //  background: #21268F;
-  //  color: #F2F5F7;
-  //  width: 24px;
-  //  height: 24px;
-  //  border-radius: 2px;
-  //  user-select: none;
-  //}
-  //.page {
-  //  cursor: pointer;
-  //  user-select: none;
-  //}
-  //
-  //.page:hover {
-  //  color: #280c77;
-  //}
+  .currentPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #21268F;
+    color: #F2F5F7;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    user-select: none;
+  }
+  .page {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .page:hover {
+    color: #280c77;
+  }
 }
