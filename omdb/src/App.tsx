@@ -68,6 +68,7 @@ function App() {
         <div className={s.App}>
             <Header searchName={searchName}
                     setSearchName={setSearchName}
+                    user={'Alexander Borisenko'}
             />
             {error === 'Movie not found!'
                 ? error

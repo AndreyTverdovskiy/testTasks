@@ -5,6 +5,7 @@ import Search from "../Search/Search";
 type headerPropsType = {
     searchName: string,
     setSearchName: (value: string) => void
+    user:string
 }
 
 function Header(props: headerPropsType) {
@@ -14,7 +15,7 @@ function Header(props: headerPropsType) {
             <Search searchValue={props.searchName}
                     setSearchValue={props.setSearchName}
             />
-            <span>Alexander Borisenko</span>
+            <span>{props.user}</span>
         </div>
     )
 }
