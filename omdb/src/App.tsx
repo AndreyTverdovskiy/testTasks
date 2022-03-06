@@ -4,6 +4,7 @@ import API from "./api/omdb-api";
 import {Film} from "./components/Film/Film";
 import {Paginator} from "./components/Paginator/Paginator";
 import Header from "./components/Header/Header";
+import {useDebounce} from "./components/hooks/useDebounce";
 
 type searchResultType = {
     Poster: string,
@@ -40,10 +41,11 @@ function App() {
             console.log(e)
         }
     }
+    const debouncedSearchTerm = useDebounce(searchName, 500);
 
     useEffect(() => {
         searchFilm();
-    }, [searchName, currentPage])
+    }, [debouncedSearchTerm, currentPage])
 
     const changePage = (currentPage: number) => {
         setCurrentPage(currentPage)
