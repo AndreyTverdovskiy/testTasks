@@ -8,9 +8,14 @@ const key = '8523cbb8';
 const axiosInstance = axios.create(configOMDB);
 
 const API = {
-    searchFilmsByTitle : (title:string) => {
-        const query = `?s=${title}&apikey=${key}`
-        return axiosInstance.get(query)
+    searchFilmsByTitle : (title:string, page:number) => {
+        return axiosInstance.get( '', {
+            params: {
+                s: title,
+                apikey: key,
+                page
+            }
+        })
     }
 }
 
