@@ -11,11 +11,11 @@ type headerPropsType = {
 function Header(props: headerPropsType) {
     return (
         <div className={s.Header}>
-            <h1>Movie Catalog</h1>
+            <h2>Movie Catalog</h2>
             <Search searchValue={props.searchName}
                     setSearchValue={props.setSearchName}
             />
-            <div className={''}>
+            <div className={s.user}>
                 <span>{props.user}</span>
             </div>
         </div>
