@@ -1,7 +1,7 @@
+@import '../styles/sass/mixins';
 .Header {
   border: 1px solid #b219d7;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 5vh;
+  @include flex(row, space-around, center, nowrap);
 }

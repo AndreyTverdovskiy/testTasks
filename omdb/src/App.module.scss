@@ -1,3 +1,5 @@
+@import './components/styles/sass/mixins';
+
 .App {
   border: 1px solid black;
   margin: 10px;
@@ -5,11 +7,7 @@
   .filmsBlock {
     border: 1px solid #ff0101;
     min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+    @include flex(column, center, center, nowrap);
 
     .filmsContainer {
       border: 1px solid #121ce3;
@@ -17,20 +15,12 @@
       min-height: 75vh;
       margin: 0 auto;
       @media (min-width: 670px) {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        @include flex(row, center, center, wrap);
 
-        .films{
+        .films {
           border: 1px solid #ff00e7;
           width: 90%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          flex-wrap: wrap;
+          @include flex(row, space-around, center, wrap);
           @media (max-width: 624px) {
             justify-content: center;
 
