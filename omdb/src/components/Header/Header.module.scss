@@ -1,6 +1,7 @@
 @import '../styles/sass/mixins';
 .Header {
   border: 1px solid #b219d7;
+  background-color: #3576ff;
   width: 100%;
   height: 5vh;
   @include flex(row, space-around, center, nowrap);

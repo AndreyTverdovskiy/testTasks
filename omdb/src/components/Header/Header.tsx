@@ -15,7 +15,9 @@ function Header(props: headerPropsType) {
             <Search searchValue={props.searchName}
                     setSearchValue={props.setSearchName}
             />
-            <span>{props.user}</span>
+            <div className={''}>
+                <span>{props.user}</span>
+            </div>
         </div>
     )
 }

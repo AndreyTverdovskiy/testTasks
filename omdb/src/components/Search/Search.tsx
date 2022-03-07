@@ -1,4 +1,5 @@
 import React, {ChangeEvent} from "react";
+import s from './Search.module.scss'
 
 type searchPropsType = {
     searchValue: string,
@@ -11,7 +12,7 @@ const Search = React.memo((props: searchPropsType) => {
         props.setSearchValue(e.target.value)
     }
     return (
-        <div>
+        <div className={s.Search}>
             <input value={props.searchValue}
                    onChange={onChangeValue}
                    placeholder='Title to search'
