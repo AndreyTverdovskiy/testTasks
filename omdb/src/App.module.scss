@@ -5,12 +5,12 @@
   margin: 10px;
 
   .filmsBlock {
-    border: 1px solid #ff0101;
+    //border: 1px solid #ff0101;
     min-height: 80vh;
     @include flex(column, center, center, nowrap);
 
     .filmsContainer {
-      border: 1px solid #121ce3;
+      //border: 1px solid #121ce3;
       width: 80%;
       min-height: 75vh;
       margin: 0 auto;
@@ -18,7 +18,7 @@
         @include flex(row, center, center, wrap);
 
         .films {
-          border: 1px solid #ff00e7;
+          //border: 1px solid #ff00e7;
           width: 90%;
           @include flex(row, space-around, center, wrap);
           @media (max-width: 624px) {

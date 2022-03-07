@@ -73,7 +73,7 @@ function App() {
             {error === 'Movie not found!'
                 ? error
                 : <div>
-                    {showRes && <h2>You search for: {searchName}, {totalResults} results found</h2>}
+                    {showRes && <h3>You search for: {searchName}, {totalResults} results found</h3>}
                     <div className={s.filmsBlock}>
                         <div className={s.filmsContainer}>
                             <div className={s.films}>
