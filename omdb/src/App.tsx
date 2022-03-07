@@ -74,8 +74,12 @@ function App() {
                 ? error
                 : <div>
                     {showRes && <span>You search for: {searchName}, {totalResults} results found</span>}
-                    <div className={s.films}>
-                        {listFilms}
+                    <div className={s.filmsBlock}>
+                        <div className={s.filmsContainer}>
+                            <div className={s.films}>
+                                {listFilms}
+                            </div>
+                        </div>
                     </div>
                     {showPag && <Paginator totalResults={+totalResults}
                                            currentPage={currentPage}

@@ -1,9 +1,44 @@
 .App {
+  border: 1px solid black;
+  margin: 10px;
 
-  .films {
+  .filmsBlock {
+    border: 1px solid #ff0101;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    .filmsContainer {
+      border: 1px solid #121ce3;
+      width: 80%;
+      min-height: 75vh;
+      margin: 0 auto;
+      @media (min-width: 670px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .films{
+          border: 1px solid #ff00e7;
+          width: 90%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          flex-wrap: wrap;
+          @media (max-width: 624px) {
+            justify-content: center;
+
+          }
+        }
+      }
+
+    }
   }
 
 }
