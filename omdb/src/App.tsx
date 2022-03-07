@@ -43,7 +43,7 @@ function App() {
             console.log(e)
         }
     }
-    const debouncedSearchTerm = useDebounce(searchName, 300);
+    const debouncedSearchTerm = useDebounce(searchName, 200);
 
     useEffect(() => {
         searchFilm();
